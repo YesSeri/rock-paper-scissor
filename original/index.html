@@ -1,0 +1,82 @@
+<p>Use console to see results. Best of 5.</p>
+<script>
+    function computerPlay (){
+        let number=Math.floor(Math.random()*3)
+        let choice = number === 0 ? "rock" : number === 1 ? "paper" : "scissor"
+        return  choice
+    }
+
+    function capitalize(string){
+    	lowString = string.toLowerCase()
+    	string=lowString[0].toUpperCase() + lowString
+    	string = string.slice(0,1)+string.slice(2,string.length)
+    	return string
+    }
+
+    function playRound(computerSelection, playerSelection){
+        if(playerSelection === computerSelection){
+            return `It's a tie. ${capitalize(playerSelection)} vs ${computerSelection}.`
+        } else{
+            if(playerSelection==="rock"){
+                if (computerSelection==="scissor"){
+                    return "You win. rock beats scissor."
+
+                }else{
+                    return "You lose. rocks loses to paper."
+                }
+            }else if(playerSelection==="scissor"){
+
+                if (computerSelection==="paper"){
+                    return "You win. Scissor beats paper."
+                }else{
+                    return "You lose. Scissor loses to rock."
+                }
+            }else{
+                if (computerSelection==="rock"){
+                    return "You win. Paper beats rock."
+                }else{
+                    return "You lose. Paper loses to scissor."
+                }
+            }
+        }
+    }
+    
+    function increaseScore(result){
+        if (result.indexOf('win')!=-1){
+            myScore++
+        }else if (result.indexOf('lose')!=-1){
+            computerScore++
+        }
+    }
+    
+    function outputScore(){
+        console.log(`Computer: ${computerScore}
+Me: ${myScore}`)
+    }
+    
+    function outputResult(result){
+        console.log(result)
+    }
+    
+    function playerPlay(){
+    let choice = prompt('Rock, paper or scissor? Use console to see results. Best of 5.')
+        return choice.toLowerCase()
+    }
+    
+    function game(){
+        const playerSelection = playerPlay()
+        const computerSelection = computerPlay()
+        result = playRound(computerSelection, playerSelection)
+        increaseScore(result)
+        outputScore()
+        outputResult(result)
+    }
+    let myScore=0
+    let computerScore=0
+
+    for(i=0; i<5;i++){
+        game()
+    }
+
+
+</script>>
