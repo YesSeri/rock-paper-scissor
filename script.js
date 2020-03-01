@@ -51,8 +51,8 @@ function increaseScore(result){
 }
 
 function outputScore(){
-    document.getElementById("roundResult").innerHTML = `Turn: ${turns} - ${result}<br> Computer: ${computerScore}
-    Player: ${playerScore}`
+    document.getElementById("roundResult").innerHTML = `Turn: ${turns} - 
+    ${result}<br> Player: ${playerScore} Computer: ${computerScore}`
 }
 
 function game(playerSelection){
@@ -79,8 +79,8 @@ function buttonListen(){
 }
 function reset(){
     document.getElementById("roundResult").innerHTML = `FINISHED: ${result}<br>Turn: ${turns}<br>
-    Computer: ${computerScore}
-    Player: ${playerScore} <br>
+    Player: ${playerScore} 
+    Computer: ${computerScore}<br>
     Start new game.`
     playerScore = 0
     computerScore = 0
